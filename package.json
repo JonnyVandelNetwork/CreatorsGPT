@@ -1,24 +1,39 @@
 {
   "name": "creatorsgpt",
   "version": "1.0.0",
-  "description": "",
+  "description": "AI-powered SaaS platform for generating lip-sync videos",
   "packageManager": "npm@11.2.0",
   "main": "index.js",
   "workspaces": [
-    "apps/*"
+    "apps/*",
+    "packages/*"
   ],
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
     "start": "turbo run start",
     "lint": "turbo run lint",
-    "test": "turbo run test"
+    "test": "turbo run test",
+    "dev:frontend": "npm run dev --workspace=apps/frontend",
+    "dev:backend": "npm run dev --workspace=apps/backend",
+    "dev:all": "turbo run dev --parallel",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "setup": "npm install && cd apps/frontend && npm install && cd ../backend && npm install"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JonnyVandelNetwork/CreatorsGPT.git"
   },
-  "keywords": [],
+  "keywords": [
+    "ai",
+    "video",
+    "lip-sync",
+    "saas",
+    "nextjs",
+    "nestjs",
+    "turborepo"
+  ],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
@@ -27,6 +42,7 @@
   },
   "homepage": "https://github.com/JonnyVandelNetwork/CreatorsGPT#readme",
   "devDependencies": {
-    "turbo": "latest"
+    "turbo": "latest",
+    "prettier": "^3.0.0"
   }
 }
